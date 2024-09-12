@@ -47,6 +47,10 @@
     min-height: 26px;
 }
 
+.header__navbar-item--has-qr:hover .header__qr {
+    display: block;
+}
+
 .header__navbar-item--strong {
     font-weight: 500;
 }
@@ -76,4 +80,37 @@
 .header__navbar-title--no-poiter:hover {
     cursor: text;
     color: white;
+}
+
+.header__qr {
+    width: 186px;
+    background-color: var(--white-color);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    padding: 8px;
+    border-radius: 2px;
+    display: none;
+    margin-top: 6px;
+}
+
+.header__qr-img {
+    width: 100%;
+}
+
+.header__qr-apps {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__qr-download-img {
+    height: 15px;
+}
+
+.header__qr-link:first-child {
+    margin-left: 8px;
+}
+
+.header__qr-link:last-child {
+    margin-right: 8px;
 }
