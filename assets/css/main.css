@@ -174,6 +174,16 @@
     }
 }
 
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
 .header__notify-header {
     height: 40px;
     background-color: var(--white-color);
@@ -249,6 +259,7 @@
     bottom: 0;
     left: 0;
     display: flex;
+    animation: fadeIn ease-in 0.5s;
 }
 
 .modal__overlay {
@@ -259,15 +270,24 @@
 }
 
 .modal__body {
+    --growth-from: 0.7;
+    --growth-to: 1;
     background-color: var(--white-color);
     margin: auto;
     z-index: 1;
     border-radius: 5px;
+    animation: growth linear 0.1s;
 }
 
 /* Authen modal */
 .auth-form__container {
     padding: 0px 32px;
+}
+
+.auth-form__container::after {
+    content: "";
+    display: block;
+    height: 30px;
 }
 
 .auth-form__header {
@@ -311,6 +331,14 @@
 
 .auth-form__aside {
     margin-top: 16px;
+    text-align: center;
+
+}
+
+.auth-form__aside::after {
+    content: "";
+    display: block;
+    height: 40px;
 }
 
 .auth-form__policy-text {
@@ -322,4 +350,61 @@
     color: var(--primary-color);
 }
 
-.
+.auth-form__controls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn {
+    min-width: 142px;
+    padding: 12px 20px;
+    border-radius: 2px;
+    background-color: transparent;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.auth-form__controls .btn:first-child::after {
+    content: "";
+    display: block;
+    width: 100px;
+}
+
+.btn.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.auth-form__social {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-around;
+    background-color: gainsboro;
+}
+
+.btn.btn--with-icon {
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgb(8, 82, 194);
+    border-radius: 5px;
+}
+
+.btn.btn--with-icon.btn-google {
+    background-color: var(--white-color);
+}
+
+.fa-facebook-square,
+.facebook {
+    color: var(--white-color);
+}
+
+.fa-google,
+.google {
+    color: var(--primary-color);
+}
+
+.btn:hover {
+    border: var(--black-color) solid 1px;
+    border-radius: 5px;
+}
